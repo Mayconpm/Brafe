@@ -24,8 +24,58 @@ body {
   max-width: 960px;
   margin: 0 auto;
 }
+.menu_container::after,
+.menu_container::before {
+  content: "";
+  display: table;
+  clear: both;
+}
 
 .menu_logo {
   display: block;
   float: left;
+  margin-left: 10px;
+}
+
+.menu_nav {
+  float: right;
+  margin-right: 10px;
+}
+.menu_nav li {
+  display: inline-block;
+}
+
+.menu_nav a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: #fff;
+  font-size: 1.125em;
+}
+/* Intro */
+.intro {
+  background: url("../img/bg-intro.jpg") no-repeat center center;
+  background-size: cover;
+  padding: 150px 0;
+  text-align: center;
+  color: #fff;
+}
+
+.intro h1 {
+  text-transform: uppercase;
+  font-size: 3em;
+}
+
+.intro h1::after {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 4px;
+  background: #fff;
+  margin: 10px auto;
+}
+
+.intro p {
+  font-style: italic;
+  font-size: 1.125em;
 }
