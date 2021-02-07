@@ -1,0 +1,31 @@
+/* Reset */
+body,
+h1,
+h2,
+h3,
+p,
+ul {
+  padding: 0px;
+  margin: 0px;
+}
+
+body {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  color: #252525;
+}
+
+/* Menu */
+.menu {
+  background: #252525;
+  padding: 20px 0;
+}
+
+.menu_container {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.menu_logo {
+  display: block;
+  float: left;
+}
