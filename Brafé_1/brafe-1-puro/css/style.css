@@ -324,3 +324,34 @@ h2.produto_mineiro::before {
   color: #d6d3c8;
   cursor: pointer;
 }
+
+/* Footer */
+
+.footer {
+  background: #d6d3c8;
+  padding: 40px 0;
+}
+.footer_container {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.footer_container::after,
+.footer_container::before {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.footer p {
+  float: left;
+  margin: 0 10px;
+  font-size: 1.125em;
+  line-height: 1.4em;
+}
+
+.footer img {
+  float: right;
+  margin: 0 10px;
+  display: block;
+}
