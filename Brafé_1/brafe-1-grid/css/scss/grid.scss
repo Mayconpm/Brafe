@@ -1,0 +1,49 @@
+$columns: 12;
+$gutter: 20px;
+
+// // Box_sizing
+// *,
+// *::after,
+// *::before {
+//   box-sizing: border-box;
+// }
+
+// Clearfix
+@mixin clearfix {
+  &::after,
+  &::before {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+// Container
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  @include clearfix;
+}
+
+// Estrutura do grid
+[class*="grid-"] {
+  margin-left: $gutter / 2;
+  margin-right: $gutter / 2;
+  float: left;
+  display: block;
+  min-height: 1px;
+}
+
+//  Função grid
+@function grid($column, $offset: false) {
+  $width: $column / $columns * 100 + "%";
+  $result: calc(#{$width} - #{$gutter});
+  @return $result;
+}
+
+// Gera as classes de grid
+@for $i from 1 through $columns {
+  .grid-#{$i} {
+    width: grid($i);
+  }
+}
