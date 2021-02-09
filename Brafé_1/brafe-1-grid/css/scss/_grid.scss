@@ -1,0 +1,68 @@
+$columns: 12;
+$gutter: 20px;
+$small_device: 300px;
+
+// mixin de media-query
+@mixin device($size) {
+  @if $size == small {
+    @media screen and (max-width: 739px) {
+      @content;
+    }
+  }
+}
+
+// Box_sizing
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+// Clearfix
+@mixin clearfix {
+  &::after,
+  &::before {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+// Container
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  @include device(small) {
+    max-width: $small_device;
+  }
+  @include clearfix;
+}
+
+//  Função grid
+@function grid($column, $offset: false) {
+  $width: $column / $columns * 100 + "%";
+  $result: calc(#{$width} - #{$gutter});
+  @return $result;
+}
+
+// Gera as classes de grid
+@for $i from 1 through $columns {
+  .grid-#{$i} {
+    width: grid($i);
+  }
+}
+
+// Estrutura do grid
+[class*="grid-"] {
+  margin-left: $gutter / 2;
+  margin-right: $gutter / 2;
+  float: left;
+  display: block;
+  min-height: 1px;
+  @include device(small) {
+    width: 100%;
+    float: none;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+}
