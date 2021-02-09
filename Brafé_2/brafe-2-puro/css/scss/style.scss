@@ -77,10 +77,6 @@ body {
     a {
       padding: 5px 10px 5px 0;
       font-size: 1.125em;
-      &::before {
-        content: "\2022";
-        padding-right: 10px;
-      }
     }
 
     &:first-child a::before {
