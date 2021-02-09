@@ -1,0 +1,66 @@
+$columns: 12;
+$gutter: 20px;
+$small_device: 480px;
+
+// mixin de media-query
+@mixin device($size) {
+  @if $size == small {
+    @media screen and (max-width: 739px) {
+      @content;
+    }
+  }
+}
+
+// Flex
+.flex {
+  display: flex;
+  max-width: 960px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  @include device(small) {
+    max-width: 300px;
+    flex-direction: column;
+  }
+}
+.flex-row {
+  display: flex;
+  margin-left: -10px;
+  margin-right: -10px;
+  flex-wrap: wrap;
+}
+
+//  Função flex-item
+@function flex-item($column) {
+  $width: $column / $columns * 100 + "%";
+  $result: calc(#{$width} - #{$gutter});
+  @return $result;
+}
+
+// Gera as classes de flex
+@for $i from 1 through $columns {
+  .flex-item-#{$i} {
+    flex: 0 0 flex-item($i);
+    max-width: flex-item($i);
+  }
+}
+
+// Estrutura do flex
+[class*="flex-item-"] {
+  margin-left: $gutter / 2;
+  margin-right: $gutter / 2;
+  align-self: flex-start;
+  @include device(small) {
+    margin-left: 0px;
+    margin-right: 0px;
+    max-width: 100%;
+    align-self: auto;
+  }
+}
+
+@include device(small) {
+  .flex-item-6 {
+    margin-left: $gutter / 2;
+    margin-right: $gutter / 2;
+    align-self: flex-start;
+  }
+}
