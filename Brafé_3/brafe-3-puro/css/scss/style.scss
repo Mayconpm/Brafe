@@ -1,0 +1,63 @@
+$preto: #252525;
+$bege-claro: #e7e4d8;
+$bege-escuro: #d6d6c8;
+body,
+p,
+h1,
+span,
+ul,
+li {
+  padding: 0px;
+  margin: 0px;
+}
+li {
+  list-style: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  color: $preto;
+  background: $bege-claro;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+// Header
+.header {
+  background: $bege-escuro;
+  padding: 20px;
+  &::after,
+  &::before {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  a {
+    float: left;
+  }
+  ul {
+    float: right;
+  }
+  li {
+    display: inline-block;
+    &:first-child a {
+      padding-left: 0px;
+    }
+    a {
+      color: $preto;
+      font-size: 1.125em;
+      padding: 0 10px;
+    }
+  }
+}
